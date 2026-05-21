@@ -7,22 +7,22 @@ class EightlyAgent < Formula
   on_macos do
     on_arm do
       url "https://github.com/smashingtags/eightly-agent/releases/download/v1.0.0-beta1/eightly-agent-darwin-arm64"
-      sha256 "6ff1fd47007a156df6c721b9a56855f0a3d4426c8ac505309f2f124e0fe3f8b3"
+      sha256 "b7f0fc04143e199694127bf8c16a0fd063f170953039e2008d22599f82abc936"
     end
     on_intel do
       url "https://github.com/smashingtags/eightly-agent/releases/download/v1.0.0-beta1/eightly-agent-darwin-amd64"
-      sha256 "45727745fb8ce25819a7f5af1d553e7b99edea39b16f7aca2be370c4acb3e0df"
+      sha256 "0f4b4f0c84f88ecaee69b3f69b5b82a34d108db7d61b69b2524dd5299d2c2d4b"
     end
   end
 
   on_linux do
     on_arm do
       url "https://github.com/smashingtags/eightly-agent/releases/download/v1.0.0-beta1/eightly-agent-linux-arm64"
-      sha256 "1568617f138538eeb3bc1c5d701d522d7b7b65339b5914a3cd884404504853b9"
+      sha256 "075441de667d1c1026a59b0f91dca521b92f76b8de3a83d3feb718f692dba691"
     end
     on_intel do
       url "https://github.com/smashingtags/eightly-agent/releases/download/v1.0.0-beta1/eightly-agent-linux-amd64"
-      sha256 "5b6eb321fc23bc532faef70ac5766be935d1fd9418865afbe2d7c58f636cbf52"
+      sha256 "c4bcd7ee2b943f8060f87864ac145a55998f56274883030c8bd1b18677614bdf"
     end
   end
 

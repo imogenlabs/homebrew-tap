@@ -2,12 +2,10 @@
 
 Homebrew formulae for [Eight.ly](https://eight.ly) products.
 
-> **Note:** SHA256 hashes are currently PLACEHOLDERs. They will be updated when the v2.0.0 release is cut and binaries are published.
-
 ## Install
 
 ```bash
-brew install smashingtags/tap/eightly-agent
+brew install imogenlabs/tap/eightly-agent
 ```
 
 ## Available Formulae

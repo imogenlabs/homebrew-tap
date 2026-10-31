@@ -1,0 +1,55 @@
+# Keeps Formula/keen.rb on keen's latest release. It reads the release from
+# GitHub, so keen's repo needs no token for this tap.
+name: Update keen formula
+
+on:
+  schedule:
+    - cron: "17 6 * * *"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "keen release tag (default: the latest)"
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-keen
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Write the formula for the release
+        id: write
+        run: |
+          tag=$(python3 .github/scripts/update-keen.py ${{ inputs.tag }})
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+          if git diff --quiet -- Formula/keen.rb; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Formula/keen.rb already matches $tag"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Install, test and audit it before publishing
+        if: steps.write.outputs.changed == 'true'
+        env:
+          HOMEBREW_NO_AUTO_UPDATE: "1"
+          HOMEBREW_NO_INSTALL_FROM_API: "1"
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -qam "keen ${{ steps.write.outputs.tag }}"
+          brew tap imogenlabs/tap "$GITHUB_WORKSPACE"
+          brew install imogenlabs/tap/keen
+          brew test imogenlabs/tap/keen
+          brew audit --strict --online imogenlabs/tap/keen
+
+      - name: Publish
+        if: steps.write.outputs.changed == 'true'
+        run: git push origin HEAD:main

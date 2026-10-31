@@ -1,10 +1,11 @@
-# Homebrew Tap — Eight.ly
+# Homebrew Tap — Imogen Labs
 
-Homebrew formulae for [Eight.ly](https://eight.ly) products.
+Homebrew formulae for Imogen Labs products.
 
 ## Install
 
 ```bash
+brew install imogenlabs/tap/keen
 brew install imogenlabs/tap/eightly-agent
 ```
 
@@ -12,9 +13,10 @@ brew install imogenlabs/tap/eightly-agent
 
 | Formula | Description |
 |---------|-------------|
+| `keen` | Atlassian CLI and MCP server ([imogenlabs/keen](https://github.com/imogenlabs/keen)). Updated automatically from its latest release every day |
 | `eightly-agent` | Lightweight Docker management agent for Eight.ly OS |
 
-## Usage
+## eightly-agent usage
 
 ```bash
 # Start the agent

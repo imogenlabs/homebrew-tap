@@ -8,7 +8,6 @@ not anything changed (git decides that).
     .github/scripts/update-keen.py            # latest release
     .github/scripts/update-keen.py v1.6.2     # a given tag
 """
-import json
 import pathlib
 import sys
 import urllib.request
@@ -18,13 +17,21 @@ FORMULA = pathlib.Path(__file__).resolve().parents[2] / "Formula" / "keen.rb"
 
 
 def get(url):
-    req = urllib.request.Request(url, headers={"Accept": "application/vnd.github+json", "User-Agent": "homebrew-tap"})
-    with urllib.request.urlopen(req, timeout=60) as r:
+    with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "homebrew-tap"}), timeout=60) as r:
         return r.read().decode()
 
 
+def latest_tag():
+    # github.com/<repo>/releases/latest redirects to .../releases/tag/<tag>. Unlike
+    # the API, it is not rate limited for shared runners.
+    req = urllib.request.Request(f"https://github.com/{REPO}/releases/latest", method="HEAD",
+                                 headers={"User-Agent": "homebrew-tap"})
+    with urllib.request.urlopen(req, timeout=60) as r:
+        return r.url.rsplit("/tag/", 1)[1]
+
+
 def main():
-    tag = sys.argv[1] if len(sys.argv) > 1 else json.loads(get(f"https://api.github.com/repos/{REPO}/releases/latest"))["tag_name"]
+    tag = sys.argv[1] if len(sys.argv) > 1 else latest_tag()
     base = f"https://github.com/{REPO}/releases/download/{tag}"
     sums = {}
     for line in get(f"{base}/checksums.txt").splitlines():

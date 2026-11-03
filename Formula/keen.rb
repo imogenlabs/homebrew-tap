@@ -5,23 +5,23 @@ class Keen < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/imogenlabs/keen/releases/download/v1.7.0/keen_darwin_arm64.tar.gz"
-      sha256 "0a4d538d9ce7f2723c6a782b3b6e0bfd16f0372c7f8470736355960fbc8acc8e"
+      url "https://github.com/imogenlabs/keen/releases/download/v1.8.0/keen_darwin_arm64.tar.gz"
+      sha256 "b4e23b8011e1cf717a3c597d9db137dcadd26872b1a6d98fa7d242f4b6040980"
     end
     on_intel do
-      url "https://github.com/imogenlabs/keen/releases/download/v1.7.0/keen_darwin_amd64.tar.gz"
-      sha256 "ac03710728ef19e62db5bc5e4489bb37e69f2af8598c26069cd74d6295f77cef"
+      url "https://github.com/imogenlabs/keen/releases/download/v1.8.0/keen_darwin_amd64.tar.gz"
+      sha256 "82ab7de85a773256b6de9a4e131d4c38660cb4892f8d487477b9d21e02cf94c1"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/imogenlabs/keen/releases/download/v1.7.0/keen_linux_arm64.tar.gz"
-      sha256 "f6821119a7fe97d2b21fbaf8c44cb5b1caac94a87c79a91c2a915b2b8c7eb00d"
+      url "https://github.com/imogenlabs/keen/releases/download/v1.8.0/keen_linux_arm64.tar.gz"
+      sha256 "4cc6d580b5f7f1f5f2431d7ce8c9ac7a1e82867e5c5def0710cccbfd9639880d"
     end
     on_intel do
-      url "https://github.com/imogenlabs/keen/releases/download/v1.7.0/keen_linux_amd64.tar.gz"
-      sha256 "caa17583cff2a7a9f9aee531277e68ba32d6fee4e165604f3639e6a107fc97c0"
+      url "https://github.com/imogenlabs/keen/releases/download/v1.8.0/keen_linux_amd64.tar.gz"
+      sha256 "57d2b9f6588e03bed16f7c357978447c59761bce389bf49f441887c3f8b49224"
     end
   end
 

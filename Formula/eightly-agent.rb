@@ -1,28 +1,28 @@
 class EightlyAgent < Formula
   desc "Lightweight Docker management agent for Eight.ly OS"
   homepage "https://eight.ly"
-  version "2.1.0"
+  version "2.1.1"
   license "Apache-2.0"
 
   on_macos do
     on_arm do
-      url "https://github.com/imogenlabs/eightly-agent/releases/download/v2.1.0/eightly-agent-darwin-arm64"
-      sha256 "4554a45f82ef04d77b7396077e5479347581b9724f9301fc0b18617be99c7e41"
+      url "https://github.com/imogenlabs/eightly-agent/releases/download/v2.1.1/eightly-agent-darwin-arm64"
+      sha256 "2be4e869f2fbd0d5cac1bc866ec23192fb20481bf6f17fd39afccaafe284782a"
     end
     on_intel do
-      url "https://github.com/imogenlabs/eightly-agent/releases/download/v2.1.0/eightly-agent-darwin-amd64"
-      sha256 "a1c4917a18c057048c92b1baa9959dd6a3d131e88c6fc586fdd6bd5ad4bba2c3"
+      url "https://github.com/imogenlabs/eightly-agent/releases/download/v2.1.1/eightly-agent-darwin-amd64"
+      sha256 "cae844dee885b839c78075e88d07596f9383fc29a9aa08fd0e80329d14e03106"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/imogenlabs/eightly-agent/releases/download/v2.1.0/eightly-agent-linux-arm64"
-      sha256 "046aabfc09135ea96a589d7a6ef8282ac33cf4d958b48fea909061d6644a61c0"
+      url "https://github.com/imogenlabs/eightly-agent/releases/download/v2.1.1/eightly-agent-linux-arm64"
+      sha256 "5ce799acbd7a15d92685fc7b531e61c5994e79a597e51521173f1c7525cb659a"
     end
     on_intel do
-      url "https://github.com/imogenlabs/eightly-agent/releases/download/v2.1.0/eightly-agent-linux-amd64"
-      sha256 "bbe215982d7158c37dde2973e3c77c88aef22ddb58dc34ce4ddc77900915d05a"
+      url "https://github.com/imogenlabs/eightly-agent/releases/download/v2.1.1/eightly-agent-linux-amd64"
+      sha256 "c7bb55f67da79759e83bd0574968cc78213f4a617effd684bc40f61db4a16838"
     end
   end
 
